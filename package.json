@@ -11,6 +11,8 @@
   "dependencies": {
     "cheerio": "^0.13.1",
     "spooky": "^0.2.4",
-    "phantom": "^0.5.7"
+    "phantom": "^0.5.7",
+    "zombie": "^2.0.0-alpha31",
+    "temp-write": "^0.2.0"
   }
 }
