@@ -1,7 +1,8 @@
+var nativeEngine = require('./engine/native')
 var runner = require('runner')
 
 window.gcs = module.exports = function(selectors, cb){
-  runner(selectors, engine, function(err, result){
+  runner(selectors, nativeEngine, function(err, result){
     cb(err, reuslt)
   })
 }

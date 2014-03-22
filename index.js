@@ -1,5 +1,3 @@
-var fs = require('fs')
-var csstext = require('./lib/csstext')
 var jsdomEngine = require('./engine/jsdom')
 var runner = require('./runner')
 
