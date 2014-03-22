@@ -1,13 +1,10 @@
 var fs = require('fs')
 var csstext = require('./lib/csstext')
 var jsdomEngine = require('./engine/jsdom')
-
+var runner = require('./runner')
 
 module.exports = function(html, selectors, cb){
-  jsdomEngine(html, selectors, function(err, result){
-    Object.keys(result).map(function(key){
-      result[key] = csstext(result[key])
-    })
+  runner(html, selectors, jsdomEngine, function(err, result){
     cb(err, result)
   })
 }

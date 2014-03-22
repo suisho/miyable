@@ -1,12 +1,7 @@
-var fs = require('fs')
-var csstext = require('./lib/csstext')
-var computeStyles = require("./lib/compute.js")
+var runner = require('runner')
 
-window.gcs = function(selectors, cb){
-  var result = computeStyles(window, selectors)
-  var err = null
-  Object.keys(result).map(function(key){
-    result[key] = result[key]
+window.gcs = module.exports = function(selectors, cb){
+  runner(selectors, engine, function(err, result){
+    cb(err, reuslt)
   })
-  cb(err, result)
 }
