@@ -1,9 +1,10 @@
-var cheerio = require("../engine/cheerio.js")
-var jsdom = require("../engine/jsdom.js")
 var fs = require('fs')
-var html = fs.readFileSync("./fixture/demo.html", "utf-8")
 var async = require('async')
 var assert = require('assert')
+var csstext = require('../lib/csstext')
+var cheerio = require("../engine/cheerio.js")
+var jsdom = require("../engine/jsdom.js")
+var html = fs.readFileSync("./fixture/demo.html", "utf-8")
 
 describe("", function(){
   it("", function(done){
@@ -13,8 +14,15 @@ describe("", function(){
         next(err, result)
       })
     }, function(err, results){
-      console.log(results[0], results[1])
-      assert.deepEqual(results[0], results[1])
+      var jsdomResult = {}
+      var cheerioResult = {}
+      Object.keys(results[0]).forEach(function(selector){
+        jsdomResult[selector] = csstext(results[0][selector])
+      })
+      Object.keys(results[1]).forEach(function(selector){
+        cheerioResult[selector] = csstext(results[1][selector])
+      })
+      assert.deepEqual(jsdomResult, cheerioResult)
       done()
     })
   })
