@@ -13,6 +13,7 @@
     "spooky": "^0.2.4",
     "phantom": "^0.5.7",
     "zombie": "^2.0.0-alpha31",
-    "temp-write": "^0.2.0"
+    "temp-write": "^0.2.0",
+    "specificity": "^0.1.3"
   }
 }
