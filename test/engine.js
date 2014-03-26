@@ -1,7 +1,7 @@
 var fs = require('fs')
 var async = require('async')
 var assert = require('assert')
-var csstext = require('../lib/csstext')
+var csstext = require('csstext')
 var cheerio = require("../engine/cheerio.js")
 var jsdom = require("../engine/jsdom.js")
 var html = fs.readFileSync("./fixture/demo.html", "utf-8")
