@@ -18,7 +18,7 @@ module.exports = function(html, selectors, cb){
   })
   // applicate style
   selectors = sortSpecificity(selectors).reverse()
-    
+
   selectors.forEach(function(selector){
     var styles = selectorStyles[selector]
     if(!styles) return
@@ -47,7 +47,18 @@ module.exports = function(html, selectors, cb){
   // get styles
   var result = {}
   selectors.forEach(function(selector){
-    result[selector] = $(selector).css()
+    var find = function($, selector){
+      var $item;
+      $(selector).each(function(i){
+        var dataSelector = $(this).data('selector')
+        if(selector == dataSelector){
+          $item = $(this)
+        }
+      })
+      return $item
+    }
+    var $elm = find($, selector)
+    result[selector] = $elm.css()
   })
 
   cb(null, result)
