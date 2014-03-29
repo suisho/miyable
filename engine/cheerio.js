@@ -9,16 +9,16 @@ module.exports = function(html, selectors, cb){
   var $ = cheerio.load(html)
 
   // expose style
-  var rules = parse($("style").text()).stylesheet.rules
+  var rules = parse($("style").text()).stylesheet.rules // BAD
   var selectorStyles = {}
   rules.forEach(function(rule){
+    if(rule.type !== "rule") return;
     rule.selectors.forEach(function(selector){
       selectorStyles[selector] = rule.declarations
     })
   })
   // applicate style
   selectors = sortSpecificity(selectors).reverse()
-
   selectors.forEach(function(selector){
     var styles = selectorStyles[selector]
     if(!styles) return
