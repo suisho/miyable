@@ -28,8 +28,20 @@ describe('specificity', function(){
     var result = sortSpecificity(input)
     var expect = [
       ".foo",
+      "div",
       "a",
-      "div"
+    ]
+    assert.deepEqual(result, expect)
+  })
+  it('same level sorting', function(){
+    var input = [
+      "a b",
+      "a d", // after selector has more power
+    ]
+    var result = sortSpecificity(input)
+    var expect = [
+      "a d",
+      "a b",
     ]
     assert.deepEqual(result, expect)
   })
