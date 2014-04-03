@@ -19,6 +19,7 @@
     "async": "^0.2.10",
     "css": "^1.6.0",
     "CSSselect": "^0.7.0",
-    "htmlparser2": "^3.7.1"
+    "htmlparser2": "^3.7.1",
+    "sort-specificity": "^0.1.0"
   }
 }
